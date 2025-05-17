@@ -288,13 +288,13 @@ local function toggleGui(show)
 		frame.Visible = true
 		frame.BackgroundTransparency = 1
 		for _, child in ipairs(frame:GetDescendants()) do
-			if child:IsA("TextLabel") or child:IsA("TextBox") or child:IsA("TextButton") then
+			if child:IsA("TextLabel") or child:IsA("") or child:IsA("TextButton") then
 				child.TextTransparency = 1
 			end
 		end
 		TweenService:Create(frame, TweenInfo.new(0.25), {BackgroundTransparency = 0}):Play()
 		for _, child in ipairs(frame:GetDescendants()) do
-			if child:IsA("TextLabel") or child:IsA("TextBox") or child:IsA("TextButton") then
+			if child:IsA("TextLabel") or child:IsA("") or child:IsA("TextButton") then
 				TweenService:Create(child, TweenInfo.new(0.25), {TextTransparency = 0}):Play()
 			end
 		end
@@ -302,7 +302,7 @@ local function toggleGui(show)
 	else
 		TweenService:Create(frame, TweenInfo.new(0.25), {BackgroundTransparency = 1}):Play()
 		for _, child in ipairs(frame:GetDescendants()) do
-			if child:IsA("TextLabel") or child:IsA("TextBox") or child:IsA("TextButton") then
+			if child:IsA("TextLabel") or child:IsA("") or child:IsA("TextButton") then
 				TweenService:Create(child, TweenInfo.new(0.25), {TextTransparency = 1}):Play()
 			end
 		end
@@ -659,7 +659,7 @@ spectateFrame.Visible = false
 spectateFrame:FindFirstChild("TextLabel").Text = "Spectate Pemain"
 spectateFrame.Position = UDim2.new(0.5, -160, 0.5, -180)
 
-local spectateSearchBox = spectateFrame:FindFirstChildOfClass("TextBox")
+local spectateSearchBox = spectateFrame:FindFirstChildOfClass("")
 local spectatePlayerList = spectateFrame:FindFirstChildOfClass("ScrollingFrame")
 
 -- Tombol stop spectate
